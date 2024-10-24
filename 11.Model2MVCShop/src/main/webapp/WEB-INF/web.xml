@@ -2,7 +2,7 @@
 
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee;
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
   version="4.0"
   metadata-complete="true">
@@ -48,8 +48,14 @@
 		      <!-- Servlet Meta-data / Spring Meta-data 위치 분리함 -->
 		    </init-param>
 		    
+		    <multipart-config>
+		    	<max-file-size>10000000</max-file-size>
+		    	<max-request-size>10000000</max-request-size>
+		    	<file-size-threshold>1000000</file-size-threshold>
+		    </multipart-config>
+		    
 		    <load-on-startup>1</load-on-startup>
-  </servlet>
+  	</servlet>
   
 	<!-- 	URI : / 형식  Servlet Mapping -->
 	<servlet-mapping>

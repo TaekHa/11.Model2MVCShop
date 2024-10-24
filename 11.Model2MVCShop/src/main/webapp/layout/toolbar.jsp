@@ -124,4 +124,28 @@
 			$(self.location).attr("href","/user/getUser?userId=${sessionScope.user.userId}");
 		});
 		
+		$(function(){
+			$("a:contains('상 품 검 색')").on("click", function(){
+				$(self.location).attr("href","/product/listProduct?menu=search")
+			});
+		});
+		
+		$(function(){
+			$("a:contains('판매상품관리')").on("click", function(){
+				$(self.location).attr("href","/product/listProduct?menu=manage")
+			});
+		});
+		
+		$(function(){
+			$("a:contains('판매상품등록')").on("click", function(){
+				$(self.location).attr("href","/product/addProduct")
+			});
+		});
+		
+		$(function(){
+			$("a:contains('구매이력조회')").on("click", function(){
+				$(self.location).attr("href","/purchase/listPurchase")
+			});
+		});
+		
 	</script>  

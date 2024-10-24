@@ -15,6 +15,11 @@ public class Search {
 	//==> 참조
 	private int endRowNum;
 	private int startRowNum;
+	//==> sorting을 위해 추가된 Field
+	private String sortingOption;
+	//==> price range를 위해 추가된 Field
+	private int minPrice;
+	private int maxPrice;
 	
 	///Constructor
 	public Search() {
@@ -58,11 +63,35 @@ public class Search {
 		return (getCurrentPage()-1)*getPageSize()+1;
 	}
 
+	public String getSortingOption() {
+		return sortingOption;
+	}
+
+	public void setSortingOption(String sortingOption) {
+		this.sortingOption = sortingOption;
+	}
+
+	public int getMinPrice() {
+		return minPrice;
+	}
+
+	public void setMinPrice(int minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	public int getMaxPrice() {
+		return maxPrice;
+	}
+
+	public void setMaxPrice(int maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+
 	@Override
 	public String toString() {
 		return "Search [currentPage=" + currentPage + ", searchCondition="
 				+ searchCondition + ", searchKeyword=" + searchKeyword
 				+ ", pageSize=" + pageSize + ", endRowNum=" + endRowNum
-				+ ", startRowNum=" + startRowNum + "]";
+				+ ", startRowNum=" + startRowNum +", sortingOption="+sortingOption+", minPrice="+minPrice+", maxPrice="+maxPrice+ "]" ;
 	}
 }
