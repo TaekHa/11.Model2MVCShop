@@ -47,7 +47,13 @@
 	}
 	
 	$(function(){
-		 $( "td.ct_btn01:contains('정렬')" ).on("click" , function() {
+		$("td[name='tranNoIndex']").on("click", function(){
+			self.location="/purchase/getPurchase?tranNo="+$("div[name='thisTranNo']").text().trim();
+		});
+	});
+	
+	$(function(){
+		 $( "button.btn.btn-default:contains('정렬')" ).on("click" , function() {
 				//Debug..
 				//alert(  $( "td.ct_btn01:contains('검색')" ).html() );
 				fncGetList(1);
@@ -112,8 +118,11 @@
 				  <c:set var="i" value="0" />
 				  <c:forEach var="purchase" items="${list}">
 					<c:set var="i" value="${ i+1 }" />
-					<tr>
-					  <td align="center">${ i }</td>
+					<div class="hidden" name="thisTranNo">
+						${purchase.tranNo }
+					</div>
+					<tr>						
+					  <td align="center" name="tranNoIndex">${ i }</td>
 					  <td align="left" >${purchase.buyerId}</td>
 					  <td align="left">${purchase.receiverName}</td>
 					  <td align="left">${purchase.receiverPhone}</td>

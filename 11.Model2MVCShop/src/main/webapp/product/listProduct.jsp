@@ -56,11 +56,11 @@ $(function() {
 });
   
 $(function(){
-	$("td:nth-child(2)").on("click", function(){
+	$("td[name='sellProd']").on("click", function(){
 		self.location="/product/getProduct?prodNo="+$("td:nth-child(6)>input").val()+"&menu=${menu}";
 	});
 	
-	$( "td:nth-child(2)" ).css("color" , "red");
+	$( "td[name='sellProd']" ).css("color" , "red");
 });
 
 $(function(){
@@ -209,7 +209,13 @@ $(function(){
 					<c:set var="i" value="${ i+1 }" />
 					<tr>
 					  <td align="center">${ i }</td>
-					  <td align="left"  title="Click : 상품정보 확인">${product.prodName}</td>
+						  <c:if test="${empty product.proTranCode || product.proTranCode eq '0' }">
+						  	<td align="left"  title="Click : 상품정보 확인" name="sellProd">${product.prodName}</td>
+						  </c:if>
+						  <c:if test="${!empty product.proTranCode && product.proTranCode ne '0' }">
+						  	<td align="left"  title="Click : 상품정보 확인" name="noProd">${product.prodName}</td>
+						  </c:if>	  
+					  
 					  <td align="left">${product.price}</td>
 					  <td align="left">${product.regDate}</td>
 						<td align="left">
